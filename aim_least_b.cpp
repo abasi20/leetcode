@@ -17,9 +17,9 @@ long MAX_VALUE = numeric_limites<int64_t>::max();
 int64_t get_last_B(int* array, int idx, int length, int target){
     if(idx==length) return MAX_VALUE;
     int ans = MAX_VALUE;
-    for(int zhang=0; array[idx]*zhang<=target;zhang++){
+    for(int zhang=0; array[idx]*zhang<=target;zhang++){//这个是个递增累加
         int next = get_last_B(array, idx+1, length, target-array[idx]);
-        ans = min(ans, next+zhang);
+        ans = min(ans, next+zhang);//张数最小值
     }
     return ans;
 }
